@@ -1,15 +1,10 @@
-var express = require('express')
-var app = express()
+var app = require('./config/server')
 
-app.set('view engine', 'ejs')
+var rotaHome = require('./app/routes/home')(app)
 
-app.get('/tecnologia', (req, res) => {
-	res.render('secao/tecnologia')
-})
+var rotaNoticias = require('./app/routes/noticias')(app)
 
-app.get('/', (req, res) => {
-	res.send('<p>Olá mundo</p>')
-})
+var rotaAddNoticia = require('./app/routes/form_add_noticia')(app)
 
 app.listen(3000, () => {
 	console.log('Server running on port 3000')
