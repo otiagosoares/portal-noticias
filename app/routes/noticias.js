@@ -1,11 +1,8 @@
-let dbConnection = require('../../config/dbConnection')
-
 module.exports = (app) =>{
 
 	app.get('/noticias', function(req, res) {
 
-
-		var connection = dbConnection()	
+		var connection = app.config.dbConnection()
 
 		connection.query('select * from noticias', function(error, result){
 			
@@ -14,5 +11,7 @@ module.exports = (app) =>{
 		})
 
 	});
+
+
 
 }
