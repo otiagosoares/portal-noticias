@@ -1,6 +1,6 @@
 var express = require('express')
 
-//'escaneia' rotas
+//'escaneia' modulos
 var consign = require('consign')
 
 var app = express()
@@ -13,6 +13,7 @@ app.set('views', './app/views')
 consign()
 	.include('app/routes')
 	.then('config/dbConnection.js')
+	.then('app/models')
 	.into(app)
 
 module.exports = app
