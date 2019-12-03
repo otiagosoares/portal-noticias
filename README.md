@@ -5,3 +5,4 @@
 - ejs
 - mysql
 - modulos com common js
+- body-parser

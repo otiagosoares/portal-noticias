@@ -8,7 +8,15 @@ module.exports = (app) => {
 	app.post('/noticias/salvar', (req, res) => {
 
 		let noticia = req.body;
-		res.send(noticia)
+
+		const connection = app.config.dbConnection()
+		var noticiasModel = app.app.models.noticiasModel
+
+		noticiasModel.salvaNoticia(noticia, connection, function(error, result){
+			
+			res.redirect('/noticias')
+			
+		})
 	})
 	
 }
